@@ -1,0 +1,33 @@
+
+<html>
+<head>
+<script type="text/javascript" src="/static/jquery.min.js"></script>
+<script type="text/javascript" src="/static/codemirror.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/codemirror.css" />
+<script type="text/javascript" src="/static/mergely.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/mergely.css" />
+				
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#compare').mergely({
+		cmsettings: { readOnly: false, lineNumbers: true },
+		editor_width: '48%',
+		editor_height: '95%',
+		lhs: function(setValue) {
+			setValue('the quick red fox\njumped over the hairy dog');
+		},
+		rhs: function(setValue) {
+			setValue('the quick brown fox\njumped over the lazy dog');
+		}
+	});
+});
+</script>	
+</head>
+
+<body>
+  <form action="../compare/" role="form" name="quickform3" id="quickform3" method="post">
+	<div id="compare"><div>
+	<button onclick="var val=$('#compare').mergely('get', 'rhs');alert(val);myform.submit();">click</button>
+	</form>
+</body>
+</html>
